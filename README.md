@@ -2,6 +2,19 @@
 
 Công cụ dịch trực tiếp mọi thứ đang hiển thị trên màn hình - phụ đề phim, truyện tranh, text trong game, và nhiều hơn nữa!
 
+## ⚡ NEW: Windows 11 Optimized Version
+
+Phiên bản tối ưu cho Windows 11 với **Quick Presets** cho các use case phổ biến:
+- 🎬 **Subtitle Mode**: Auto-dịch phụ đề anime/phim mỗi 1.5s
+- 📖 **Manga Mode**: Tối ưu cho truyện tranh với preprocessing nâng cao
+- 🎮 **Game Mode**: Dịch dialog và UI trong game
+
+👉 **Quick Start cho Windows 11:**
+```cmd
+setup.bat          # Chạy lần đầu để cài đặt
+run_optimized.bat  # Chạy phiên bản tối ưu
+```
+
 ## ✨ Tính năng
 
 - 📸 **Chụp màn hình**: Chụp toàn bộ màn hình hoặc vùng được chọn
@@ -10,6 +23,7 @@ Công cụ dịch trực tiếp mọi thứ đang hiển thị trên màn hình 
 - 🎯 **Overlay trong suốt**: Hiển thị kết quả dịch ngay trên màn hình
 - 🔄 **Chế độ tự động**: Tự động chụp và dịch liên tục
 - 🎨 **Giao diện thân thiện**: GUI đơn giản, dễ sử dụng
+- ⚡ **Performance optimizations**: Caching, rate limiting, image preprocessing
 
 ## 📋 Yêu cầu hệ thống
 
@@ -20,16 +34,40 @@ Công cụ dịch trực tiếp mọi thứ đang hiển thị trên màn hình 
 
 ## 🚀 Cài đặt
 
-### 1. Clone repository
+### Windows 11 (Đề xuất - Tự động)
+
+```cmd
+# 1. Clone repository
+git clone https://github.com/Thanhho1909/screenyy.git
+cd screenyy
+
+# 2. Chạy setup script (tự động cài đặt mọi thứ)
+setup.bat
+
+# 3. Chạy ứng dụng
+run_optimized.bat
+```
+
+### Cài đặt thủ công (All platforms)
+
+#### 1. Clone repository
 
 ```bash
 git clone https://github.com/Thanhho1909/screenyy.git
 cd screenyy
 ```
 
-### 2. Cài đặt dependencies
+#### 2. Cài đặt dependencies
 
 ```bash
+# Tạo virtual environment (khuyến nghị)
+python -m venv venv
+
+# Kích hoạt venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+
+# Cài đặt packages
 pip install -r requirements.txt
 ```
 
@@ -37,7 +75,7 @@ pip install -r requirements.txt
 - Lần đầu chạy, EasyOCR sẽ tự động tải các model OCR (~500MB - 1GB)
 - Quá trình này có thể mất vài phút tùy vào tốc độ internet
 
-### 3. Cài đặt Tkinter (nếu chưa có)
+#### 3. Cài đặt Tkinter (chỉ Linux)
 
 **Ubuntu/Debian:**
 ```bash
@@ -59,8 +97,24 @@ Tkinter thường đã được cài sẵn với Python
 
 ## 💻 Sử dụng
 
+### Phiên bản nào phù hợp với bạn?
+
+| Version | Phù hợp cho | Performance | Features |
+|---------|-------------|-------------|----------|
+| **screen_translator_optimized.py** | Windows 11, dịch sub/manga | ⭐⭐⭐⭐⭐ | Quick presets, caching, preprocessing |
+| screen_translator.py | Tất cả OS, general use | ⭐⭐⭐⭐ | Cơ bản, ổn định |
+| translate_cli.py | Command line, scripting | ⭐⭐⭐⭐ | CLI only, lightweight |
+
 ### Chạy ứng dụng GUI
 
+**Windows 11 (Optimized - Đề xuất):**
+```cmd
+run_optimized.bat
+# hoặc
+python screen_translator_optimized.py
+```
+
+**All platforms (Basic version):**
 ```bash
 python screen_translator.py
 ```
@@ -203,14 +257,25 @@ Mọi đóng góp đều được chào đón! Vui lòng:
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Mở Pull Request
 
+## 📚 Documentation
+
+- 📖 [USAGE.md](USAGE.md) - Hướng dẫn sử dụng chi tiết từng bước
+- 🔧 [INSTALLATION.md](INSTALLATION.md) - Hướng dẫn cài đặt cho từng OS
+- ⚡ [WINDOWS_OPTIMIZATION.md](WINDOWS_OPTIMIZATION.md) - Tối ưu cho Windows 11
+- 🚀 [QUICKSTART.md](QUICKSTART.md) - Bắt đầu nhanh trong 5 phút
+- 📁 [examples/](examples/) - Ví dụ code cho subtitle và manga
+
 ## 📝 TODO
 
+- [x] ✅ Tối ưu hóa performance với caching và preprocessing
+- [x] ✅ Quick presets cho subtitle, manga, game
+- [x] ✅ Windows 11 optimization với DPI awareness
 - [ ] Thêm region selection bằng cách kéo chuột
 - [ ] Hỗ trợ hotkey toàn cục (ví dụ: Ctrl+Shift+T)
 - [ ] Lưu lịch sử dịch
 - [ ] Xuất kết quả ra file
 - [ ] Hỗ trợ thêm translation engine (DeepL, Azure, v.v.)
-- [ ] Tối ưu hóa performance với GPU
+- [ ] GPU support cho OCR (CUDA)
 - [ ] Thêm chế độ "click to translate" tại vị trí con trỏ chuột
 
 ## 📄 License
