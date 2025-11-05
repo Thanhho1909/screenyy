@@ -1,0 +1,26 @@
+# Screen Translator Dependencies - Windows Optimized
+# Optimized for Python 3.10-3.14 on Windows
+
+# Screen capture
+mss>=9.0.1
+pillow>=10.0.0
+
+# OCR - Core dependencies only
+easyocr>=1.7.0
+opencv-python>=4.8.0
+
+# Translation
+googletrans==4.0.0rc1
+
+# GUI
+# tk  # Built-in with Python on Windows
+
+# Data processing
+numpy>=1.24.0
+
+# PyTorch - Will be installed by easyocr
+# torch
+# torchvision
+
+# Note: scikit-image is optional and may fail on Python 3.14
+# EasyOCR will work without it for basic OCR functionality
